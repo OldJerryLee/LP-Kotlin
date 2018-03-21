@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.kotlin
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.kotlin; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.xtext.example.kotlin.kotlin,
+ org.xtext.example.kotlin,
+ org.xtext.example.kotlin.services,
+ org.xtext.example.kotlin.parser.antlr,
+ org.xtext.example.kotlin.generator,
+ org.xtext.example.kotlin.kotlin.impl,
+ org.xtext.example.kotlin.parser.antlr.internal,
+ org.xtext.example.kotlin.scoping,
+ org.xtext.example.kotlin.kotlin.util,
+ org.xtext.example.kotlin.serializer,
+ org.xtext.example.kotlin.validation
+Import-Package: org.apache.log4j

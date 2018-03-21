@@ -1,0 +1,9 @@
+grammar org.xtext.example.kotlin.Kotlin with org.eclipse.xtext.common.Terminals
+
+generate kotlin "http://www.xtext.org/example/kotlin/Kotlin"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Compute' name=ID '=' value=INT ';'; 
