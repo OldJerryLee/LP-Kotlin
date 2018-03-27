@@ -14,9 +14,11 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.xtext.example.kotlin.kotlin.Greeting;
+import org.xtext.example.kotlin.kotlin.Argument;
+import org.xtext.example.kotlin.kotlin.Condition;
 import org.xtext.example.kotlin.kotlin.KotlinPackage;
 import org.xtext.example.kotlin.kotlin.Model;
+import org.xtext.example.kotlin.kotlin.When;
 import org.xtext.example.kotlin.services.KotlinGrammarAccess;
 
 @SuppressWarnings("all")
@@ -33,11 +35,17 @@ public class KotlinSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == KotlinPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case KotlinPackage.GREETING:
-				sequence_Greeting(context, (Greeting) semanticObject); 
+			case KotlinPackage.ARGUMENT:
+				sequence_Argument(context, (Argument) semanticObject); 
+				return; 
+			case KotlinPackage.CONDITION:
+				sequence_Condition(context, (Condition) semanticObject); 
 				return; 
 			case KotlinPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case KotlinPackage.WHEN:
+				sequence_When(context, (When) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -46,22 +54,31 @@ public class KotlinSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     Greeting returns Greeting
+	 *     Argument returns Argument
 	 *
 	 * Constraint:
-	 *     (name=ID value=INT)
+	 *     name=ID
 	 */
-	protected void sequence_Greeting(ISerializationContext context, Greeting semanticObject) {
+	protected void sequence_Argument(ISerializationContext context, Argument semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, KotlinPackage.Literals.GREETING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KotlinPackage.Literals.GREETING__NAME));
-			if (transientValues.isValueTransient(semanticObject, KotlinPackage.Literals.GREETING__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KotlinPackage.Literals.GREETING__VALUE));
+			if (transientValues.isValueTransient(semanticObject, KotlinPackage.Literals.ARGUMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KotlinPackage.Literals.ARGUMENT__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGreetingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getGreetingAccess().getValueINTTerminalRuleCall_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getArgumentAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Condition returns Condition
+	 *
+	 * Constraint:
+	 *     (value=INT | (conditional=Conditional type=Type))?
+	 */
+	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -70,9 +87,27 @@ public class KotlinSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     greetings+=Greeting+
+	 *     when=When
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, KotlinPackage.Literals.MODEL__WHEN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, KotlinPackage.Literals.MODEL__WHEN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getModelAccess().getWhenWhenParserRuleCall_0(), semanticObject.getWhen());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     When returns When
+	 *
+	 * Constraint:
+	 *     (name=ID condition=Condition output=Output?)
+	 */
+	protected void sequence_When(ISerializationContext context, When semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

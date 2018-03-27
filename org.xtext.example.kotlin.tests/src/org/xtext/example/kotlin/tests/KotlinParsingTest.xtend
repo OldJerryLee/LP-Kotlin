@@ -21,7 +21,42 @@ class KotlinParsingTest {
 	@Test
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Compute Xtext = 10;
+			when (obj) { 1 -> println("One Two Three For Five")}
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	@Test
+	def void loadModel2() {
+		val result = parseHelper.parse('''
+			when (obj) { "Hello" -> println("Greeting") }
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void loadModel3() {
+		val result = parseHelper.parse('''
+			when (obj) { is Long -> println("Long") }
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void loadModel4() {
+		val result = parseHelper.parse('''
+			when (obj) { !is String -> println("Not a String") }
+		''')
+		Assert.assertNotNull(result)
+		Assert.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void loadModel5() {
+		val result = parseHelper.parse('''
+			when (obj) { else -> println("Unknown") }
 		''')
 		Assert.assertNotNull(result)
 		Assert.assertTrue(result.eResource.errors.isEmpty)

@@ -3,23 +3,18 @@
  */
 package org.xtext.example.kotlin.kotlin.impl;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.xtext.example.kotlin.kotlin.Greeting;
 import org.xtext.example.kotlin.kotlin.KotlinPackage;
 import org.xtext.example.kotlin.kotlin.Model;
+import org.xtext.example.kotlin.kotlin.When;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +24,7 @@ import org.xtext.example.kotlin.kotlin.Model;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.kotlin.kotlin.impl.ModelImpl#getGreetings <em>Greetings</em>}</li>
+ *   <li>{@link org.xtext.example.kotlin.kotlin.impl.ModelImpl#getWhen <em>When</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +32,14 @@ import org.xtext.example.kotlin.kotlin.Model;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getGreetings() <em>Greetings</em>}' containment reference list.
+   * The cached value of the '{@link #getWhen() <em>When</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGreetings()
+   * @see #getWhen()
    * @generated
    * @ordered
    */
-  protected EList<Greeting> greetings;
+  protected When when;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +67,47 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Greeting> getGreetings()
+  public When getWhen()
   {
-    if (greetings == null)
+    return when;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetWhen(When newWhen, NotificationChain msgs)
+  {
+    When oldWhen = when;
+    when = newWhen;
+    if (eNotificationRequired())
     {
-      greetings = new EObjectContainmentEList<Greeting>(Greeting.class, this, KotlinPackage.MODEL__GREETINGS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KotlinPackage.MODEL__WHEN, oldWhen, newWhen);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return greetings;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setWhen(When newWhen)
+  {
+    if (newWhen != when)
+    {
+      NotificationChain msgs = null;
+      if (when != null)
+        msgs = ((InternalEObject)when).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KotlinPackage.MODEL__WHEN, null, msgs);
+      if (newWhen != null)
+        msgs = ((InternalEObject)newWhen).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KotlinPackage.MODEL__WHEN, null, msgs);
+      msgs = basicSetWhen(newWhen, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KotlinPackage.MODEL__WHEN, newWhen, newWhen));
   }
 
   /**
@@ -91,8 +120,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case KotlinPackage.MODEL__GREETINGS:
-        return ((InternalEList<?>)getGreetings()).basicRemove(otherEnd, msgs);
+      case KotlinPackage.MODEL__WHEN:
+        return basicSetWhen(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +136,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case KotlinPackage.MODEL__GREETINGS:
-        return getGreetings();
+      case KotlinPackage.MODEL__WHEN:
+        return getWhen();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,15 +147,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case KotlinPackage.MODEL__GREETINGS:
-        getGreetings().clear();
-        getGreetings().addAll((Collection<? extends Greeting>)newValue);
+      case KotlinPackage.MODEL__WHEN:
+        setWhen((When)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +169,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case KotlinPackage.MODEL__GREETINGS:
-        getGreetings().clear();
+      case KotlinPackage.MODEL__WHEN:
+        setWhen((When)null);
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +186,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case KotlinPackage.MODEL__GREETINGS:
-        return greetings != null && !greetings.isEmpty();
+      case KotlinPackage.MODEL__WHEN:
+        return when != null;
     }
     return super.eIsSet(featureID);
   }

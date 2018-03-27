@@ -78,33 +78,33 @@ ruleModel returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getModelAccess().getGreetingsGreetingParserRuleCall_0());
+				newCompositeNode(grammarAccess.getModelAccess().getWhenWhenParserRuleCall_0());
 			}
-			lv_greetings_0_0=ruleGreeting
+			lv_when_0_0=ruleWhen
 			{
 				if ($current==null) {
 					$current = createModelElementForParent(grammarAccess.getModelRule());
 				}
-				add(
+				set(
 					$current,
-					"greetings",
-					lv_greetings_0_0,
-					"org.xtext.example.kotlin.Kotlin.Greeting");
+					"when",
+					lv_when_0_0,
+					"org.xtext.example.kotlin.Kotlin.When");
 				afterParserOrEnumRuleCall();
 			}
 		)
-	)*
+	)
 ;
 
-// Entry rule entryRuleGreeting
-entryRuleGreeting returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getGreetingRule()); }
-	iv_ruleGreeting=ruleGreeting
-	{ $current=$iv_ruleGreeting.current; }
+// Entry rule entryRuleWhen
+entryRuleWhen returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getWhenRule()); }
+	iv_ruleWhen=ruleWhen
+	{ $current=$iv_ruleWhen.current; }
 	EOF;
 
-// Rule Greeting
-ruleGreeting returns [EObject current=null]
+// Rule When
+ruleWhen returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -112,56 +112,290 @@ ruleGreeting returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Compute'
+		otherlv_0='when'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getGreetingAccess().getComputeKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getWhenAccess().getWhenKeyword_0());
+		}
+		otherlv_1='('
+		{
+			newLeafNode(otherlv_1, grammarAccess.getWhenAccess().getLeftParenthesisKeyword_1());
 		}
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_name_2_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getGreetingAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getWhenAccess().getNameIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getGreetingRule());
+						$current = createModelElement(grammarAccess.getWhenRule());
 					}
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_1_0,
+						lv_name_2_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
-		otherlv_2='='
+		otherlv_3=')'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getGreetingAccess().getEqualsSignKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getWhenAccess().getRightParenthesisKeyword_3());
+		}
+		otherlv_4='{'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getWhenAccess().getLeftCurlyBracketKeyword_4());
 		}
 		(
 			(
-				lv_value_3_0=RULE_INT
 				{
-					newLeafNode(lv_value_3_0, grammarAccess.getGreetingAccess().getValueINTTerminalRuleCall_3_0());
+					newCompositeNode(grammarAccess.getWhenAccess().getConditionConditionParserRuleCall_5_0());
 				}
+				lv_condition_5_0=ruleCondition
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getGreetingRule());
+						$current = createModelElementForParent(grammarAccess.getWhenRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"value",
-						lv_value_3_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"condition",
+						lv_condition_5_0,
+						"org.xtext.example.kotlin.Kotlin.Condition");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_4=';'
+		otherlv_6='->'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getGreetingAccess().getSemicolonKeyword_4());
+			newLeafNode(otherlv_6, grammarAccess.getWhenAccess().getHyphenMinusGreaterThanSignKeyword_6());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getWhenAccess().getOutputOutputParserRuleCall_7_0());
+				}
+				lv_output_7_0=ruleOutput
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getWhenRule());
+					}
+					set(
+						$current,
+						"output",
+						lv_output_7_0,
+						"org.xtext.example.kotlin.Kotlin.Output");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_8='}'
+		{
+			newLeafNode(otherlv_8, grammarAccess.getWhenAccess().getRightCurlyBracketKeyword_8());
 		}
 	)
 ;
+
+// Entry rule entryRuleCondition
+entryRuleCondition returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getConditionRule()); }
+	iv_ruleCondition=ruleCondition
+	{ $current=$iv_ruleCondition.current; }
+	EOF;
+
+// Rule Condition
+ruleCondition returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getConditionAccess().getConditionAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				(
+					lv_value_1_0=RULE_INT
+					{
+						newLeafNode(lv_value_1_0, grammarAccess.getConditionAccess().getValueINTTerminalRuleCall_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getConditionRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_1_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
+			)
+			    |
+			this_TEXT_2=RULE_TEXT
+			{
+				newLeafNode(this_TEXT_2, grammarAccess.getConditionAccess().getTEXTTerminalRuleCall_1_1());
+			}
+			    |
+			(
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getConditionAccess().getConditionalConditionalParserRuleCall_1_2_0_0());
+						}
+						lv_conditional_3_0=ruleConditional
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getConditionRule());
+							}
+							set(
+								$current,
+								"conditional",
+								lv_conditional_3_0,
+								"org.xtext.example.kotlin.Kotlin.Conditional");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getConditionAccess().getTypeTypeParserRuleCall_1_2_1_0());
+						}
+						lv_type_4_0=ruleType
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getConditionRule());
+							}
+							set(
+								$current,
+								"type",
+								lv_type_4_0,
+								"org.xtext.example.kotlin.Kotlin.Type");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			otherlv_5='else'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getConditionAccess().getElseKeyword_1_3());
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleConditional
+entryRuleConditional returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getConditionalRule()); }
+	iv_ruleConditional=ruleConditional
+	{ $current=$iv_ruleConditional.current.getText(); }
+	EOF;
+
+// Rule Conditional
+ruleConditional returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			kw='!'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getConditionalAccess().getExclamationMarkKeyword_0());
+			}
+		)?
+		kw='is'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getConditionalAccess().getIsKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleType
+entryRuleType returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getTypeRule()); }
+	iv_ruleType=ruleType
+	{ $current=$iv_ruleType.current.getText(); }
+	EOF;
+
+// Rule Type
+ruleType returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='Long'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTypeAccess().getLongKeyword_0());
+		}
+		    |
+		kw='Int'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTypeAccess().getIntKeyword_1());
+		}
+		    |
+		kw='String'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getTypeAccess().getStringKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleOutput
+entryRuleOutput returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getOutputRule()); }
+	iv_ruleOutput=ruleOutput
+	{ $current=$iv_ruleOutput.current.getText(); }
+	EOF;
+
+// Rule Output
+ruleOutput returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='println('
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getOutputAccess().getPrintlnKeyword_0());
+		}
+		this_TEXT_1=RULE_TEXT
+		{
+			$current.merge(this_TEXT_1);
+		}
+		{
+			newLeafNode(this_TEXT_1, grammarAccess.getOutputAccess().getTEXTTerminalRuleCall_1());
+		}
+		kw=')'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getOutputAccess().getRightParenthesisKeyword_2());
+		}
+	)
+;
+
+RULE_TEXT : '"' ( options {greedy=false;} : . )*'"';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

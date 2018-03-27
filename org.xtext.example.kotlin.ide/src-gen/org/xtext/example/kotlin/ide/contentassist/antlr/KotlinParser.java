@@ -31,10 +31,21 @@ public class KotlinParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getGreetingAccess().getGroup(), "rule__Greeting__Group__0");
-					put(grammarAccess.getModelAccess().getGreetingsAssignment(), "rule__Model__GreetingsAssignment");
-					put(grammarAccess.getGreetingAccess().getNameAssignment_1(), "rule__Greeting__NameAssignment_1");
-					put(grammarAccess.getGreetingAccess().getValueAssignment_3(), "rule__Greeting__ValueAssignment_3");
+					put(grammarAccess.getConditionAccess().getAlternatives_1(), "rule__Condition__Alternatives_1");
+					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
+					put(grammarAccess.getWhenAccess().getGroup(), "rule__When__Group__0");
+					put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
+					put(grammarAccess.getConditionAccess().getGroup_1_2(), "rule__Condition__Group_1_2__0");
+					put(grammarAccess.getConditionalAccess().getGroup(), "rule__Conditional__Group__0");
+					put(grammarAccess.getOutputAccess().getGroup(), "rule__Output__Group__0");
+					put(grammarAccess.getModelAccess().getWhenAssignment(), "rule__Model__WhenAssignment");
+					put(grammarAccess.getWhenAccess().getNameAssignment_2(), "rule__When__NameAssignment_2");
+					put(grammarAccess.getWhenAccess().getConditionAssignment_5(), "rule__When__ConditionAssignment_5");
+					put(grammarAccess.getWhenAccess().getOutputAssignment_7(), "rule__When__OutputAssignment_7");
+					put(grammarAccess.getArgumentAccess().getNameAssignment(), "rule__Argument__NameAssignment");
+					put(grammarAccess.getConditionAccess().getValueAssignment_1_0(), "rule__Condition__ValueAssignment_1_0");
+					put(grammarAccess.getConditionAccess().getConditionalAssignment_1_2_0(), "rule__Condition__ConditionalAssignment_1_2_0");
+					put(grammarAccess.getConditionAccess().getTypeAssignment_1_2_1(), "rule__Condition__TypeAssignment_1_2_1");
 				}
 			};
 		}

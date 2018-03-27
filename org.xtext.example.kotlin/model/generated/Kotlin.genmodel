@@ -7,11 +7,20 @@
   <genPackages prefix="Kotlin" basePackage="org.xtext.example.kotlin" disposableProviderFactory="true"
       fileExtensions="kotlin" ecorePackage="Kotlin.ecore#/">
     <genClasses ecoreClass="Kotlin.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kotlin.ecore#//Model/greetings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kotlin.ecore#//Model/when"/>
     </genClasses>
-    <genClasses ecoreClass="Kotlin.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kotlin.ecore#//Greeting/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kotlin.ecore#//Greeting/value"/>
+    <genClasses ecoreClass="Kotlin.ecore#//When">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kotlin.ecore#//When/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kotlin.ecore#//When/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kotlin.ecore#//When/output"/>
+    </genClasses>
+    <genClasses ecoreClass="Kotlin.ecore#//Argument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kotlin.ecore#//Argument/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Kotlin.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kotlin.ecore#//Condition/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kotlin.ecore#//Condition/conditional"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kotlin.ecore#//Condition/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

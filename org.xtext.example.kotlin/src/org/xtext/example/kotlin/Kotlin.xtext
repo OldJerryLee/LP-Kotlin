@@ -3,7 +3,42 @@ grammar org.xtext.example.kotlin.Kotlin with org.eclipse.xtext.common.Terminals
 generate kotlin "http://www.xtext.org/example/kotlin/Kotlin"
 
 Model:
+	when=When;
+	
+When:
+	'when' '(' name=ID ')' '{' condition=Condition '->' output=Output? '}'; 
+
+Argument:
+	name=ID;
+	
+Condition:
+	{Condition}(value=INT | TEXT | (conditional=Conditional type=Type) | 'else')
+;
+
+Conditional:
+	'!'?'is'
+;
+
+Type:
+	('Long' | 'Int' | 'String')
+;
+
+Output: 
+	'println('TEXT')'
+;
+
+terminal TEXT:
+	'"' -> '"'
+;
+
+//terminal TEXT_STRING:
+//	('a'..'z'|'A'..'Z'|'_'|'0'..'9')* ' '+
+//;
+
+
+
+/*Model:
 	greetings+=Greeting*;
 	
 Greeting:
-	'Compute' name=ID '=' value=INT ';'; 
+	'Compute' name=ID '=' value=INT ';'; 	*/

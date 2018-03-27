@@ -66,7 +66,9 @@ public class KotlinFactoryImpl extends EFactoryImpl implements KotlinFactory
     switch (eClass.getClassifierID())
     {
       case KotlinPackage.MODEL: return createModel();
-      case KotlinPackage.GREETING: return createGreeting();
+      case KotlinPackage.WHEN: return createWhen();
+      case KotlinPackage.ARGUMENT: return createArgument();
+      case KotlinPackage.CONDITION: return createCondition();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -88,10 +90,32 @@ public class KotlinFactoryImpl extends EFactoryImpl implements KotlinFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Greeting createGreeting()
+  public When createWhen()
   {
-    GreetingImpl greeting = new GreetingImpl();
-    return greeting;
+    WhenImpl when = new WhenImpl();
+    return when;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Argument createArgument()
+  {
+    ArgumentImpl argument = new ArgumentImpl();
+    return argument;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
   }
 
   /**

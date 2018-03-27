@@ -6,6 +6,8 @@ package org.xtext.example.kotlin.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
+import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
@@ -23,62 +25,223 @@ public class KotlinGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.kotlin.Kotlin.Model");
-		private final Assignment cGreetingsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cGreetingsGreetingParserRuleCall_0 = (RuleCall)cGreetingsAssignment.eContents().get(0);
+		private final Assignment cWhenAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cWhenWhenParserRuleCall_0 = (RuleCall)cWhenAssignment.eContents().get(0);
 		
 		//Model:
-		//	greetings+=Greeting*;
+		//	when=When;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//greetings+=Greeting*
-		public Assignment getGreetingsAssignment() { return cGreetingsAssignment; }
+		//when=When
+		public Assignment getWhenAssignment() { return cWhenAssignment; }
 		
-		//Greeting
-		public RuleCall getGreetingsGreetingParserRuleCall_0() { return cGreetingsGreetingParserRuleCall_0; }
+		//When
+		public RuleCall getWhenWhenParserRuleCall_0() { return cWhenWhenParserRuleCall_0; }
 	}
-	public class GreetingElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.kotlin.Kotlin.Greeting");
+	public class WhenElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.kotlin.Kotlin.When");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cComputeKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueINTTerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cWhenKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cConditionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cConditionConditionParserRuleCall_5_0 = (RuleCall)cConditionAssignment_5.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cOutputAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cOutputOutputParserRuleCall_7_0 = (RuleCall)cOutputAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
-		//Greeting:
-		//	'Compute' name=ID '=' value=INT ';';
+		//When:
+		//	'when' '(' name=ID ')' '{' condition=Condition '->' output=Output? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Compute' name=ID '=' value=INT ';'
+		//'when' '(' name=ID ')' '{' condition=Condition '->' output=Output? '}'
 		public Group getGroup() { return cGroup; }
 		
-		//'Compute'
-		public Keyword getComputeKeyword_0() { return cComputeKeyword_0; }
+		//'when'
+		public Keyword getWhenKeyword_0() { return cWhenKeyword_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
-		//'='
-		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		
+		//condition=Condition
+		public Assignment getConditionAssignment_5() { return cConditionAssignment_5; }
+		
+		//Condition
+		public RuleCall getConditionConditionParserRuleCall_5_0() { return cConditionConditionParserRuleCall_5_0; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_6() { return cHyphenMinusGreaterThanSignKeyword_6; }
+		
+		//output=Output?
+		public Assignment getOutputAssignment_7() { return cOutputAssignment_7; }
+		
+		//Output
+		public RuleCall getOutputOutputParserRuleCall_7_0() { return cOutputOutputParserRuleCall_7_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+	}
+	public class ArgumentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.kotlin.Kotlin.Argument");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//Argument:
+		//	name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+	}
+	public class ConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.kotlin.Kotlin.Condition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cConditionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cValueINTTerminalRuleCall_1_0_0 = (RuleCall)cValueAssignment_1_0.eContents().get(0);
+		private final RuleCall cTEXTTerminalRuleCall_1_1 = (RuleCall)cAlternatives_1.eContents().get(1);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Assignment cConditionalAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
+		private final RuleCall cConditionalConditionalParserRuleCall_1_2_0_0 = (RuleCall)cConditionalAssignment_1_2_0.eContents().get(0);
+		private final Assignment cTypeAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cTypeTypeParserRuleCall_1_2_1_0 = (RuleCall)cTypeAssignment_1_2_1.eContents().get(0);
+		private final Keyword cElseKeyword_1_3 = (Keyword)cAlternatives_1.eContents().get(3);
+		
+		//Condition:
+		//	{Condition} (value=INT | TEXT | conditional=Conditional type=Type | 'else');
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Condition} (value=INT | TEXT | conditional=Conditional type=Type | 'else')
+		public Group getGroup() { return cGroup; }
+		
+		//{Condition}
+		public Action getConditionAction_0() { return cConditionAction_0; }
+		
+		//value=INT | TEXT | conditional=Conditional type=Type | 'else'
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//value=INT
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		public Assignment getValueAssignment_1_0() { return cValueAssignment_1_0; }
 		
 		//INT
-		public RuleCall getValueINTTerminalRuleCall_3_0() { return cValueINTTerminalRuleCall_3_0; }
+		public RuleCall getValueINTTerminalRuleCall_1_0_0() { return cValueINTTerminalRuleCall_1_0_0; }
 		
-		//';'
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		//TEXT
+		public RuleCall getTEXTTerminalRuleCall_1_1() { return cTEXTTerminalRuleCall_1_1; }
+		
+		//conditional=Conditional type=Type
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//conditional=Conditional
+		public Assignment getConditionalAssignment_1_2_0() { return cConditionalAssignment_1_2_0; }
+		
+		//Conditional
+		public RuleCall getConditionalConditionalParserRuleCall_1_2_0_0() { return cConditionalConditionalParserRuleCall_1_2_0_0; }
+		
+		//type=Type
+		public Assignment getTypeAssignment_1_2_1() { return cTypeAssignment_1_2_1; }
+		
+		//Type
+		public RuleCall getTypeTypeParserRuleCall_1_2_1_0() { return cTypeTypeParserRuleCall_1_2_1_0; }
+		
+		//'else'
+		public Keyword getElseKeyword_1_3() { return cElseKeyword_1_3; }
+	}
+	public class ConditionalElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.kotlin.Kotlin.Conditional");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cExclamationMarkKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cIsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Conditional:
+		//	'!'? 'is';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'!'? 'is'
+		public Group getGroup() { return cGroup; }
+		
+		//'!'?
+		public Keyword getExclamationMarkKeyword_0() { return cExclamationMarkKeyword_0; }
+		
+		//'is'
+		public Keyword getIsKeyword_1() { return cIsKeyword_1; }
+	}
+	public class TypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.kotlin.Kotlin.Type");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cLongKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cIntKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cStringKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//Type:
+		//	'Long' | 'Int' | 'String';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Long' | 'Int' | 'String'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'Long'
+		public Keyword getLongKeyword_0() { return cLongKeyword_0; }
+		
+		//'Int'
+		public Keyword getIntKeyword_1() { return cIntKeyword_1; }
+		
+		//'String'
+		public Keyword getStringKeyword_2() { return cStringKeyword_2; }
+	}
+	public class OutputElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.kotlin.Kotlin.Output");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPrintlnKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cTEXTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//Output:
+		//	'println(' TEXT ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'println(' TEXT ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'println('
+		public Keyword getPrintlnKeyword_0() { return cPrintlnKeyword_0; }
+		
+		//TEXT
+		public RuleCall getTEXTTerminalRuleCall_1() { return cTEXTTerminalRuleCall_1; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
 	}
 	
 	
 	private final ModelElements pModel;
-	private final GreetingElements pGreeting;
+	private final WhenElements pWhen;
+	private final ArgumentElements pArgument;
+	private final ConditionElements pCondition;
+	private final ConditionalElements pConditional;
+	private final TypeElements pType;
+	private final OutputElements pOutput;
+	private final TerminalRule tTEXT;
 	
 	private final Grammar grammar;
 	
@@ -90,7 +253,13 @@ public class KotlinGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pGreeting = new GreetingElements();
+		this.pWhen = new WhenElements();
+		this.pArgument = new ArgumentElements();
+		this.pCondition = new ConditionElements();
+		this.pConditional = new ConditionalElements();
+		this.pType = new TypeElements();
+		this.pOutput = new OutputElements();
+		this.tTEXT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.kotlin.Kotlin.TEXT");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -121,7 +290,7 @@ public class KotlinGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	greetings+=Greeting*;
+	//	when=When;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -130,14 +299,70 @@ public class KotlinGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 	
-	//Greeting:
-	//	'Compute' name=ID '=' value=INT ';';
-	public GreetingElements getGreetingAccess() {
-		return pGreeting;
+	//When:
+	//	'when' '(' name=ID ')' '{' condition=Condition '->' output=Output? '}';
+	public WhenElements getWhenAccess() {
+		return pWhen;
 	}
 	
-	public ParserRule getGreetingRule() {
-		return getGreetingAccess().getRule();
+	public ParserRule getWhenRule() {
+		return getWhenAccess().getRule();
+	}
+	
+	//Argument:
+	//	name=ID;
+	public ArgumentElements getArgumentAccess() {
+		return pArgument;
+	}
+	
+	public ParserRule getArgumentRule() {
+		return getArgumentAccess().getRule();
+	}
+	
+	//Condition:
+	//	{Condition} (value=INT | TEXT | conditional=Conditional type=Type | 'else');
+	public ConditionElements getConditionAccess() {
+		return pCondition;
+	}
+	
+	public ParserRule getConditionRule() {
+		return getConditionAccess().getRule();
+	}
+	
+	//Conditional:
+	//	'!'? 'is';
+	public ConditionalElements getConditionalAccess() {
+		return pConditional;
+	}
+	
+	public ParserRule getConditionalRule() {
+		return getConditionalAccess().getRule();
+	}
+	
+	//Type:
+	//	'Long' | 'Int' | 'String';
+	public TypeElements getTypeAccess() {
+		return pType;
+	}
+	
+	public ParserRule getTypeRule() {
+		return getTypeAccess().getRule();
+	}
+	
+	//Output:
+	//	'println(' TEXT ')';
+	public OutputElements getOutputAccess() {
+		return pOutput;
+	}
+	
+	public ParserRule getOutputRule() {
+		return getOutputAccess().getRule();
+	}
+	
+	//terminal TEXT:
+	//	'"'->'"';
+	public TerminalRule getTEXTRule() {
+		return tTEXT;
 	}
 	
 	//terminal ID:

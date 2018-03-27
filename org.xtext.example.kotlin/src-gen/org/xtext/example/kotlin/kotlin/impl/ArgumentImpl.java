@@ -10,24 +10,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.kotlin.kotlin.Greeting;
+import org.xtext.example.kotlin.kotlin.Argument;
 import org.xtext.example.kotlin.kotlin.KotlinPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Greeting</b></em>'.
+ * An implementation of the model object '<em><b>Argument</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.kotlin.kotlin.impl.GreetingImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.example.kotlin.kotlin.impl.GreetingImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.xtext.example.kotlin.kotlin.impl.ArgumentImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeting
+public class ArgumentImpl extends MinimalEObjectImpl.Container implements Argument
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -50,31 +49,11 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected static final int VALUE_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected int value = VALUE_EDEFAULT;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected GreetingImpl()
+  protected ArgumentImpl()
   {
     super();
   }
@@ -87,7 +66,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   @Override
   protected EClass eStaticClass()
   {
-    return KotlinPackage.Literals.GREETING;
+    return KotlinPackage.Literals.ARGUMENT;
   }
 
   /**
@@ -110,30 +89,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KotlinPackage.GREETING__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getValue()
-  {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(int newValue)
-  {
-    int oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, KotlinPackage.GREETING__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, KotlinPackage.ARGUMENT__NAME, oldName, name));
   }
 
   /**
@@ -146,10 +102,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case KotlinPackage.GREETING__NAME:
+      case KotlinPackage.ARGUMENT__NAME:
         return getName();
-      case KotlinPackage.GREETING__VALUE:
-        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -164,11 +118,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case KotlinPackage.GREETING__NAME:
+      case KotlinPackage.ARGUMENT__NAME:
         setName((String)newValue);
-        return;
-      case KotlinPackage.GREETING__VALUE:
-        setValue((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -184,11 +135,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case KotlinPackage.GREETING__NAME:
+      case KotlinPackage.ARGUMENT__NAME:
         setName(NAME_EDEFAULT);
-        return;
-      case KotlinPackage.GREETING__VALUE:
-        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -204,10 +152,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case KotlinPackage.GREETING__NAME:
+      case KotlinPackage.ARGUMENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case KotlinPackage.GREETING__VALUE:
-        return value != VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -225,10 +171,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", value: ");
-    result.append(value);
     result.append(')');
     return result.toString();
   }
 
-} //GreetingImpl
+} //ArgumentImpl

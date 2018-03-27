@@ -68,13 +68,13 @@ public interface KotlinPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Greetings</b></em>' containment reference list.
+   * The feature id for the '<em><b>When</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__GREETINGS = 0;
+  int MODEL__WHEN = 0;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -86,14 +86,14 @@ public interface KotlinPackage extends EPackage
   int MODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.kotlin.kotlin.impl.GreetingImpl <em>Greeting</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.kotlin.kotlin.impl.WhenImpl <em>When</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.kotlin.kotlin.impl.GreetingImpl
-   * @see org.xtext.example.kotlin.kotlin.impl.KotlinPackageImpl#getGreeting()
+   * @see org.xtext.example.kotlin.kotlin.impl.WhenImpl
+   * @see org.xtext.example.kotlin.kotlin.impl.KotlinPackageImpl#getWhen()
    * @generated
    */
-  int GREETING = 1;
+  int WHEN = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -102,7 +102,72 @@ public interface KotlinPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GREETING__NAME = 0;
+  int WHEN__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHEN__CONDITION = 1;
+
+  /**
+   * The feature id for the '<em><b>Output</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHEN__OUTPUT = 2;
+
+  /**
+   * The number of structural features of the '<em>When</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHEN_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.kotlin.kotlin.impl.ArgumentImpl <em>Argument</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.kotlin.kotlin.impl.ArgumentImpl
+   * @see org.xtext.example.kotlin.kotlin.impl.KotlinPackageImpl#getArgument()
+   * @generated
+   */
+  int ARGUMENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Argument</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARGUMENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.kotlin.kotlin.impl.ConditionImpl <em>Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.kotlin.kotlin.impl.ConditionImpl
+   * @see org.xtext.example.kotlin.kotlin.impl.KotlinPackageImpl#getCondition()
+   * @generated
+   */
+  int CONDITION = 3;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -111,16 +176,34 @@ public interface KotlinPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GREETING__VALUE = 1;
+  int CONDITION__VALUE = 0;
 
   /**
-   * The number of structural features of the '<em>Greeting</em>' class.
+   * The feature id for the '<em><b>Conditional</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GREETING_FEATURE_COUNT = 2;
+  int CONDITION__CONDITIONAL = 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__TYPE = 2;
+
+  /**
+   * The number of structural features of the '<em>Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION_FEATURE_COUNT = 3;
 
 
   /**
@@ -134,47 +217,122 @@ public interface KotlinPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.kotlin.kotlin.Model#getGreetings <em>Greetings</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.kotlin.kotlin.Model#getWhen <em>When</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Greetings</em>'.
-   * @see org.xtext.example.kotlin.kotlin.Model#getGreetings()
+   * @return the meta object for the containment reference '<em>When</em>'.
+   * @see org.xtext.example.kotlin.kotlin.Model#getWhen()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_Greetings();
+  EReference getModel_When();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.kotlin.kotlin.Greeting <em>Greeting</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.kotlin.kotlin.When <em>When</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Greeting</em>'.
-   * @see org.xtext.example.kotlin.kotlin.Greeting
+   * @return the meta object for class '<em>When</em>'.
+   * @see org.xtext.example.kotlin.kotlin.When
    * @generated
    */
-  EClass getGreeting();
+  EClass getWhen();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.kotlin.kotlin.Greeting#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.kotlin.kotlin.When#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.kotlin.kotlin.Greeting#getName()
-   * @see #getGreeting()
+   * @see org.xtext.example.kotlin.kotlin.When#getName()
+   * @see #getWhen()
    * @generated
    */
-  EAttribute getGreeting_Name();
+  EAttribute getWhen_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.kotlin.kotlin.Greeting#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.kotlin.kotlin.When#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see org.xtext.example.kotlin.kotlin.When#getCondition()
+   * @see #getWhen()
+   * @generated
+   */
+  EReference getWhen_Condition();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.kotlin.kotlin.When#getOutput <em>Output</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Output</em>'.
+   * @see org.xtext.example.kotlin.kotlin.When#getOutput()
+   * @see #getWhen()
+   * @generated
+   */
+  EAttribute getWhen_Output();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.kotlin.kotlin.Argument <em>Argument</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Argument</em>'.
+   * @see org.xtext.example.kotlin.kotlin.Argument
+   * @generated
+   */
+  EClass getArgument();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.kotlin.kotlin.Argument#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.kotlin.kotlin.Argument#getName()
+   * @see #getArgument()
+   * @generated
+   */
+  EAttribute getArgument_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.kotlin.kotlin.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Condition</em>'.
+   * @see org.xtext.example.kotlin.kotlin.Condition
+   * @generated
+   */
+  EClass getCondition();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.kotlin.kotlin.Condition#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.xtext.example.kotlin.kotlin.Greeting#getValue()
-   * @see #getGreeting()
+   * @see org.xtext.example.kotlin.kotlin.Condition#getValue()
+   * @see #getCondition()
    * @generated
    */
-  EAttribute getGreeting_Value();
+  EAttribute getCondition_Value();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.kotlin.kotlin.Condition#getConditional <em>Conditional</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Conditional</em>'.
+   * @see org.xtext.example.kotlin.kotlin.Condition#getConditional()
+   * @see #getCondition()
+   * @generated
+   */
+  EAttribute getCondition_Conditional();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.kotlin.kotlin.Condition#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.xtext.example.kotlin.kotlin.Condition#getType()
+   * @see #getCondition()
+   * @generated
+   */
+  EAttribute getCondition_Type();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -210,22 +368,22 @@ public interface KotlinPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Greetings</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>When</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__GREETINGS = eINSTANCE.getModel_Greetings();
+    EReference MODEL__WHEN = eINSTANCE.getModel_When();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.kotlin.kotlin.impl.GreetingImpl <em>Greeting</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.kotlin.kotlin.impl.WhenImpl <em>When</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.kotlin.kotlin.impl.GreetingImpl
-     * @see org.xtext.example.kotlin.kotlin.impl.KotlinPackageImpl#getGreeting()
+     * @see org.xtext.example.kotlin.kotlin.impl.WhenImpl
+     * @see org.xtext.example.kotlin.kotlin.impl.KotlinPackageImpl#getWhen()
      * @generated
      */
-    EClass GREETING = eINSTANCE.getGreeting();
+    EClass WHEN = eINSTANCE.getWhen();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -233,7 +391,51 @@ public interface KotlinPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GREETING__NAME = eINSTANCE.getGreeting_Name();
+    EAttribute WHEN__NAME = eINSTANCE.getWhen_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHEN__CONDITION = eINSTANCE.getWhen_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Output</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WHEN__OUTPUT = eINSTANCE.getWhen_Output();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.kotlin.kotlin.impl.ArgumentImpl <em>Argument</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.kotlin.kotlin.impl.ArgumentImpl
+     * @see org.xtext.example.kotlin.kotlin.impl.KotlinPackageImpl#getArgument()
+     * @generated
+     */
+    EClass ARGUMENT = eINSTANCE.getArgument();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARGUMENT__NAME = eINSTANCE.getArgument_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.kotlin.kotlin.impl.ConditionImpl <em>Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.kotlin.kotlin.impl.ConditionImpl
+     * @see org.xtext.example.kotlin.kotlin.impl.KotlinPackageImpl#getCondition()
+     * @generated
+     */
+    EClass CONDITION = eINSTANCE.getCondition();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -241,7 +443,23 @@ public interface KotlinPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GREETING__VALUE = eINSTANCE.getGreeting_Value();
+    EAttribute CONDITION__VALUE = eINSTANCE.getCondition_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Conditional</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONDITION__CONDITIONAL = eINSTANCE.getCondition_Conditional();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONDITION__TYPE = eINSTANCE.getCondition_Type();
 
   }
 
